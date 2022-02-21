@@ -1,0 +1,51 @@
+{
+  "categories": [
+    "Electronics",
+    "Jewelery",
+    "Men's clothing",
+    "Women's clothing",
+    "Kids Clothing"
+  ],
+  "products": [
+    {}
+  ],
+  "inventory": [
+    {
+      "pName": "Apple Iphone  x13 Pro-Updated",
+      "PStockLocation": "Mumbai",
+      "qtyInStock": 670,
+      "pUnitPrice": "2000",
+      "inventoryValue": 1340000,
+      "reorder": "Yes",
+      "reorderQty": 10,
+      "vendor": "Apple",
+      "pDescription": "Mens trousers for office ",
+      "id": "3d43da"
+    },
+    {
+      "pName": "Apple Mac Book ",
+      "PStockLocation": "Mumbai",
+      "qtyInStock": 10,
+      "pUnitPrice": "900",
+      "inventoryValue": 9000,
+      "reorder": "Yes",
+      "reorderQty": 10,
+      "vendor": "Apple",
+      "pDescription": "Apple Mac Books ,15Inch HDD display, 8 GB RAM ,1TB HDD memory ",
+      "id": "0fd784",
+      "sku": "0fd784"
+    },
+    {
+      "pName": "Womens Trousers",
+      "PStockLocation": "Pune",
+      "qtyInStock": 40,
+      "pUnitPrice": "500",
+      "inventoryValue": 20000,
+      "reorder": "Yes",
+      "reorderQty": 100,
+      "vendor": "Samsung Pvt Ltd",
+      "pDescription": "Womens trousers",
+      "id": "31c7f7"
+    }
+  ]
+}

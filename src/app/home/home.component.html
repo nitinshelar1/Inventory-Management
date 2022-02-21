@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-12 ">
+      <div class="d-flex flex-fill flex-shrink-1 flex-wrap"> 
+        <div class="myBox-1" (click)="goToStcoks()">
+            <h3>{{totalInventoryCount || 0}}</h3>
+            <p> Inventory Stock</p>
+        </div>
+        <div class="myBox-2">
+          <h3>{{totalInventoryCost || 0}}</h3>
+          <p> Inventory Value </p>
+        </div>
+        <div class="myBox-3">
+          <h3>{{totalInventoryOrders || 0}}</h3> 
+          <p> Total Orders</p>
+        </div>
+        <div class="myBox-4">
+          <h3>{{totalInventoryVendors}}</h3> 
+          <p> Total Vendors</p>
+        </div>
+        <div class="myBox-5">
+          <h3>{{totalInventorySales || 0}}</h3> 
+          <p> Total Sales</p>
+        </div>
+        <div class="myBox-6">
+          <h3> 200</h3> 
+          <p> Total Safe Stock </p>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-12">
+      <div class="example-button-row">
+        <div class="example-flex-container mt-4">
+          <div>
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder=" Product Id ,Name ,Price" #input />
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" (click)="addInventory()">
+            <mat-icon>add_circle</mat-icon> Add Product
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="data-table">
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox
+                  (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                  [aria-label]="checkboxLabel()"
+                >
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+                  [aria-label]="checkboxLabel(row)"
+                >
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+              <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="pName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Product</th>
+              <td mat-cell *matCellDef="let row">{{ row.pName }}</td>
+            </ng-container>
+            <!-- Progress Column -->
+            <ng-container matColumnDef="PStockLocation">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+              <td mat-cell *matCellDef="let row">{{ row.PStockLocation }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="qtyInStock">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity In Stock</th>
+              <td mat-cell *matCellDef="let row">{{ row.qtyInStock }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="pUnitPrice">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Per Unit Price</th>
+              <td mat-cell *matCellDef="let row">{{ row.pUnitPrice }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="inventoryValue">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Inventory Value</th>
+              <td mat-cell *matCellDef="let row">{{ row.inventoryValue }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="reorder">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Reorder</th>
+              <td mat-cell *matCellDef="let row">
+               <span > {{ row.reorder }} </span> 
+              
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reorderQty">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Reorder Quantity</th>
+              <td mat-cell *matCellDef="let row">{{ row.reorderQty }}</td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="itemDiscontinued">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Discontinued</th>
+              <td mat-cell *matCellDef="let row"> {{row.itemDiscontinued}} </td>
+            </ng-container> -->
+
+            <ng-container matColumnDef="vendor">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Vendor</th>
+              <td mat-cell *matCellDef="let row">{{ row.vendor }}</td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="pDescription">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Description</th>
+              <td mat-cell *matCellDef="let row"> {{row.pDescription}} </td>
+            </ng-container> -->
+
+            <ng-container matColumnDef="viewDetails">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+              <td mat-cell *matCellDef="let row">
+                <!-- <button mat-button color="primary"  matTooltip="Edit"><mat-icon>edit</mat-icon></button> 
+                <button mat-button color="warn"  matTooltip="Delete"><mat-icon>delete_forever</mat-icon></button>  -->
+                <span>
+                  <mat-icon color="primary" matTooltip="Edit" (click)="editInventory(row)">edit</mat-icon>
+                </span>
+                <span>
+                  <mat-icon color="warn" matTooltip="Delete" (click)="deliteInventory(row)">delete</mat-icon>
+                </span>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+            </tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- data table -->
+</div>

@@ -1,0 +1,197 @@
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+.data-table {
+  position: relative;
+  margin: 0.5%;
+}
+table {
+  width: 100%;
+}
+.example-container {
+  height: 400px;
+  width: 550px;
+  max-width: 100%;
+  overflow: auto;
+}
+// .mat-table thead {
+//   background-color: #3f51b50a !important;
+// }
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+tr.mat-header-row {
+  height: 56px;
+  background-color: #3f51b51a;
+}
+th.mat-header-cell,
+td.mat-cell {
+  text-align: start;
+  padding-left: 30px;
+}
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}
+
+.myBox-1{
+  width: 17rem;
+  height: 5rem;
+  color: #9c27b0;
+  border: 1px solid #a7cdec;
+  background: #c3a7d9a3;
+  font-size: small;
+  border: 1px solid #c5a7dd;
+  border-radius: 5px 5px;
+  margin:2px 4px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/icons8-document-delivery-64.png");
+  background-repeat: no-repeat;
+  background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}
+.myBox-2{
+  width: 17rem;
+    height: 5rem;
+    color: #9c27b0;
+    border: 1px solid #a7cdec;
+    background: #c3a7d9a3;
+    font-size: small;
+    border: 1px solid #c5a7dd;
+    border-radius: 5px 5px;
+    margin:2px 4px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assets/icons8-average-2-64.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}
+.myBox-3{
+  width: 17rem;
+    height: 5rem;
+    color: #9c27b0;
+    border: 1px solid #a7cdec;
+    background: #c3a7d9a3;
+    font-size: small;
+    border: 1px solid #c5a7dd;
+    border-radius: 5px 5px;
+    margin:2px 4px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-image: url("../../assets/icons8-investment-64.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}
+.myBox-4{
+  width: 17rem;
+    height: 5rem;
+    color: #9c27b0;
+    border: 1px solid #a7cdec;
+    background: #c3a7d9a3;
+    font-size: small;
+    border: 1px solid #c5a7dd;
+    border-radius: 5px 5px;
+    margin:2px 4px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-image: url("../../assets/icons8-people-64.png ");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}
+.myBox-5{
+  width: 17rem;
+    height: 5rem;
+    color: #9c27b0;
+    border: 1px solid #a7cdec;
+    background: #c3a7d9a3;
+    font-size: small;
+    border: 1px solid #c5a7dd;
+    border-radius: 5px 5px;
+    margin:2px 4px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-image: url("../../assets/icons8-new-contact-64.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}
+.myBox-6{
+  width: 17rem;
+    height: 5rem;
+    color: #9c27b0;
+    border: 1px solid #a7cdec;
+    background: #c3a7d9a3;
+    font-size: small;
+    border: 1px solid #c5a7dd;
+    border-radius: 5px 5px;
+    margin:2px 4px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-image: url("../../assets/icons8-get-cash-64.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-blend-mode: multiply;
+    cursor: pointer;
+
+}

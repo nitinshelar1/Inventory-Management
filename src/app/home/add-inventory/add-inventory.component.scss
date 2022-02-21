@@ -1,0 +1,24 @@
+.example-form {
+  min-width: 60vw;
+  max-width: 60vw;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.back-btn{
+  background: #df16e4;
+    padding: 0px 9px;
+    display: inline-flex;
+    border: 1px solid transparent;
+    border-radius: 4px 4px;
+    position: relative;
+    top: 3px;
+    color: white;
+}

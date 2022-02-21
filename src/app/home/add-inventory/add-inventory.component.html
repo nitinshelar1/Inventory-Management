@@ -1,0 +1,130 @@
+<mat-card class="m-2">
+  <mat-card-title>
+    <span class="back-btn" (click)="goToInventory()"> <mat-icon class="text-white">arrow_back</mat-icon> </span>
+    <span class="m-2 p-2 "> {{ title }}</span>
+  </mat-card-title>
+  <mat-card-content>
+    <!-- <form class="example-form">
+       
+          
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Product Name</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Long Last Name That Will Be Truncated</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+            </tr>
+            </table>
+          
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Product  Description</mat-label>
+                <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Address 2</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field>
+            </p>
+          
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="Ex. San Francisco">
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>State</mat-label>
+                <input matInput placeholder="Ex. California">
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Postal Code</mat-label>
+                <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-form-field></td>
+            </tr></table>
+          </form> -->
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="productForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputname">Product Name : </label>
+              <input type="text" class="form-control" id="inputname" placeholder="" formControlName="pName" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCategories">Product Location :</label>
+              <select id="inputCategories" class="form-control" formControlName="PStockLocation">
+                <option selected>Choose...</option>
+                <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="inputAddress"> Description :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder=""
+              formControlName="pDescription"
+            />
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputColor">Quantity In Stock :</label>
+              <input type="number" class="form-control" id="inputColor" formControlName="qtyInStock" (change)="valuechange($event)" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputweight">Per Unit Price :</label>
+              <input type="text" class="form-control" id="inputweight" formControlName="pUnitPrice" (change)="valuechange($event)" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputPrice">Inventory Value :</label>
+              <input type="text" class="form-control" id="inputPrice" formControlName="inventoryValue" readonly />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAvlStock">Reorder :</label>
+              <input type="text" class="form-control" id="inputAvlStock" formControlName="reorder" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputSafeStcok">Reorder Quantity :</label>
+              <input type="number" class="form-control" id="inputSafeStcok" formControlName="reorderQty" />
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="inputSafeStcok">Vendor :</label>
+              <select id="inputCategories" class="form-control" formControlName="vendor">
+                <option selected>....Choose Vendor ...</option>
+                <option *ngFor="let ven of vendorList" [value]="ven">{{ ven }}</option>
+              </select>
+            </div>
+          </div>
+          <mat-card-actions class="d-flex justify-content-center">
+            <button mat-raised-button color="secondary" (click)="resetForm()">
+              <mat-icon class="mr-2">refresh</mat-icon>Reset 
+            </button>
+            <button *ngIf="!isUpdate" mat-raised-button color="primary" (click)="AddProdInventory()">
+              <mat-icon class="mr-2">save</mat-icon>Submit  
+            </button>
+            <button *ngIf="isUpdate" mat-raised-button color="primary" (click)="AddProdInventory()">
+              <mat-icon class="mr-2">save</mat-icon> Update  
+            </button>
+            <!-- <button type="button" class="btn btn-sm btn-light mr-2 pl-2 pr-2" (click)="resetForm()">Reset</button>
+            <button *ngIf="!isUpdate" type="button" class="btn btn-sm btn-primary pl-2 pr-2" (click)="AddProdInventory()">Submit</button>
+            <button *ngIf="isUpdate" type="button" class="btn btn-sm btn-primary pl-2 pr-2" (click)="AddProdInventory()">Update</button>  -->
+          </mat-card-actions>
+        </form>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+  
+  </mat-card-footer>
+</mat-card>
